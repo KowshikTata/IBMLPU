@@ -1,11 +1,13 @@
 package comm.example.demo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import comm.example.demo.bean.Account;
 import comm.example.demo.repo.AccountDAO;
 @Service
+
 public class AccountServiceImpl implements AccountService {
 	private AccountDAO accountDAO;
 

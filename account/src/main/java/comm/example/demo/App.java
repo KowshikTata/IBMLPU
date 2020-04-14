@@ -4,11 +4,16 @@ import java.util.Scanner;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+
 
 import comm.example.demo.bean.Account;
 import comm.example.demo.bean.AccountType;
 import comm.example.demo.bean.ToDo;
+import comm.example.demo.config.JDBCConfig;
+
 import comm.example.demo.repo.ToDoRepository;
 import comm.example.demo.repo.ToDoRepositoryImpl;
 import comm.example.demo.service.AccountService;
@@ -25,7 +30,10 @@ public class App
 	public static void main( String[] args )
     {
 		Scanner scanner=new Scanner(System.in);
-		ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
+		AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext(JDBCConfig.class);
+		//ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
+		
+		
 		/*
 		 * ToDoService service=context.getBean("toDoServiceImpl",ToDoServiceImpl.class);
 		 * ToDo todo=context.getBean("toDo",ToDo.class);
