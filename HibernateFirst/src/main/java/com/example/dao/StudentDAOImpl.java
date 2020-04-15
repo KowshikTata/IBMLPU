@@ -17,6 +17,7 @@ public class StudentDAOImpl implements StudentDAO{
 	{
 		factory=MyHibernateFactory.getMyHibernateFactory();
 		sessionFactory=factory.getSessionFactory();
+		
 		session=sessionFactory.openSession();
 	}
 
@@ -32,9 +33,18 @@ public class StudentDAOImpl implements StudentDAO{
 
 	public List<Student> getStudents() {
 		// TODO Auto-generated method stub
-		
+		session.getTransaction().begin();
 		List<Student> list=session.createQuery("from Student",Student.class).list();
+		session.getTransaction().commit();
 		return list;
+	}
+
+	public Student getStudentById(String id) {
+		// TODO Auto-generated method stub
+		
+		Student student=session.get(Student.class,id);
+		
+		return student;
 	}
 
 }

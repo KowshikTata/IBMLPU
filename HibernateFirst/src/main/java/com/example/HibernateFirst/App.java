@@ -29,14 +29,15 @@ public class App
        {
     	   System.out.println("1.create student");
     	   System.out.println("2.display all students");
-    	   System.out.println("3.Exit");
+    	   System.out.println("3.Display student by id");
+    	   System.out.println("4.Exit");
     	   System.out.println("enter choice");
     	   ch=scanner.nextInt();
     	   switch(ch)
     	   {
     	   case 1:
     		   Student student=new Student();
-    		   student.setId(UUID.randomUUID().toString());
+    		   //student.setId(UUID.randomUUID().toString());
     		   System.out.println("enter first name");
     		   fname=scanner.next();
     		   student.setFirstName(fname);
@@ -56,17 +57,31 @@ public class App
     			  System.out.println(li);
     		  }
     		   break;
-    	   case 3:
+    	   case 3:  
+    		   System.out.println("enter id");
+    		   String id=scanner.next();
+      		 Student st=service.getStudentById(id);
+      		 if(st==null)
+      		 {
+      			 System.out.println("no id exist with"+id);
+      		 }
+      		 else
+      		 {
+      			 System.out.println(st);
+      		 }
+      		 break;
+    	   case 4:
     		   System.exit(0);
     		   break;
+    	  
     	   default:
-    		   System.out.println("select from 1-3");
+    		   System.out.println("select from 1-4");
     		   break;
     	   }
     	   
     	   
     	   
-       }while(ch!=3);
+       }while(ch!=4);
     	
     	
     	

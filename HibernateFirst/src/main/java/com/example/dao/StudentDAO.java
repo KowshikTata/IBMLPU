@@ -7,6 +7,8 @@ public interface StudentDAO {
 	public Student createStudent(Student student);
 		
 	public List<Student> getStudents();
+	
+	public Student getStudentById(String id);
 		
 		
 }
