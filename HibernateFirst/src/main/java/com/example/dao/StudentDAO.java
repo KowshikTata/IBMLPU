@@ -10,5 +10,5 @@ public interface StudentDAO {
 	
 	public Student getStudentById(String id);
 		
-		
+	public Student updateByFname(String fname,String email);	
 }

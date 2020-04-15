@@ -11,4 +11,6 @@ public interface StudentService {
 	public List<Student> getStudents();
 	
 	public Student getStudentById(String id);
+	
+	public Student updateByFname(String fname,String email);
 }

@@ -46,5 +46,18 @@ public class StudentDAOImpl implements StudentDAO{
 		
 		return student;
 	}
+	
+	public Student updateByFname(String fname,String email)
+	{
+		
+		Student student=session.get(Student.class,fname);
+		session.getTransaction().begin();
+		student.setEmail(email);
+		session.save(student);
+		session.getTransaction().commit();
+		
+		return student;
+		
+	}
 
 }

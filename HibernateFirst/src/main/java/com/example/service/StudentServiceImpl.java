@@ -28,4 +28,9 @@ public class StudentServiceImpl implements StudentService{
 		return dao.getStudentById(id);
 	}
 
+	public Student updateByFname(String fname, String email) {
+		// TODO Auto-generated method stub
+		return dao.updateByFname(fname, email);
+	}
+
 }

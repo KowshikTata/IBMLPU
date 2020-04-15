@@ -30,7 +30,8 @@ public class App
     	   System.out.println("1.create student");
     	   System.out.println("2.display all students");
     	   System.out.println("3.Display student by id");
-    	   System.out.println("4.Exit");
+    	   System.out.println("4.update by fname");
+    	   System.out.println("5.Exit");
     	   System.out.println("enter choice");
     	   ch=scanner.nextInt();
     	   switch(ch)
@@ -71,17 +72,34 @@ public class App
       		 }
       		 break;
     	   case 4:
+    		   System.out.println("enter fname");
+    		   fname=scanner.next();
+    		   System.out.println("enter email");
+    		   email=scanner.next();
+    		   st=service.updateByFname(fname, email);
+	  		 if(st==null)
+	  		 {
+	  			 System.out.println("no record exist with"+fname);
+	  		 }
+	  		 else
+	  		 {
+	  			 System.out.println(st);
+	  		 }
+	  		 break;
+    		   
+    		
+    	   case 5:
     		   System.exit(0);
     		   break;
     	  
     	   default:
-    		   System.out.println("select from 1-4");
+    		   System.out.println("select from 1-5");
     		   break;
     	   }
     	   
     	   
     	   
-       }while(ch!=4);
+       }while(ch!=5);
     	
     	
     	
