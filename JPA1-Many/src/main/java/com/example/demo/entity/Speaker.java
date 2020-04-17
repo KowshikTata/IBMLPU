@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="speaker")
-public class Speaker {
+public class Speaker implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

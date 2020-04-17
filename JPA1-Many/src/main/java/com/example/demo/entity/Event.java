@@ -3,6 +3,7 @@ package com.example.demo.entity;
 
 
 
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
 
@@ -20,7 +21,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="event")
-public class Event {
+public class Event implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
