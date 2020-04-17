@@ -22,6 +22,7 @@ public class App
     	SessionFactory factory=new Configuration().configure().addAnnotatedClass(Student.class).addAnnotatedClass(StudentDetail.class).buildSessionFactory();
     	Session session=factory.openSession();
     	
+    	
     	try {
     		int ch=0;
     		do
