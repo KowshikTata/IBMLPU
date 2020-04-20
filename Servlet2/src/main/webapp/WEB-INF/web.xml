@@ -11,10 +11,22 @@
   <description>2</description>
   <servlet-class>com.example.demo.ListLeagueServlet</servlet-class>
   </servlet>
-  <servlet-mapping>
+  
+  <servlet>
+  <servlet-name>AddLeagueServlet</servlet-name>
+  <display-name>AddLeagueServlet</display-name>
+  <description>add</description>
+  <servlet-class>com.example.model.controller.AddLeague</servlet-class>
+  </servlet>
+ <servlet-mapping>
   
   <servlet-name>ListLeagueServlet</servlet-name>
   <url-pattern>/list_leagues.view</url-pattern>
+  
+  </servlet-mapping>
+  <servlet-mapping>
+  <servlet-name>AddLeagueServlet</servlet-name>
+  <url-pattern>/controller.do</url-pattern>
   
   </servlet-mapping>
   <welcome-file-list>
