@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.util.Arrays;
+
 public class Customer {
 
 	private int id;
@@ -59,6 +61,13 @@ public class Customer {
 	}
 	public void setLanguages(String[] languages) {
 		this.languages = languages;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", active=" + active
+				+ ", address=" + address + ", languages=" + Arrays.toString(languages) + "]";
 	}
 	
 }

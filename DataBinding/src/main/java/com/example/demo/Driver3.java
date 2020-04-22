@@ -8,9 +8,16 @@ public class Driver3 {
 
 	public static void main(String[] args) {
 		
-		 Jsonb jsonb = JsonbBuilder.create(); 
+		 Jsonb jsonb = JsonbBuilder.create();
+		 Address ad=new Address();
+		 ad.setCity("Jalandhar");
+		 ad.setCountry("India");
+		 ad.setState("Punjab");
+		 ad.setStreet("LPU");
+		 ad.setZip("144411");
+		 String[] lang= {"Java","C++","SQL"};
 		 String result=jsonb.toJson(new
-		 Customer(1,"John","Doe",true,new Address(),new String[3]));
+		 Customer(1,"John","Doe",true,ad,lang));
 		 System.out.println(result);
 		 
 		
