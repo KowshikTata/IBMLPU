@@ -2,9 +2,9 @@ package com.example.exception;
 
 public class CustomerResponseEntity {
 
-	int statusCode;
-	String message;
-	long seconds;
+	private int statusCode;
+	private String message;
+	private long seconds;
 	public CustomerResponseEntity(int statusCode, String message, long seconds) {
 		super();
 		this.statusCode = statusCode;

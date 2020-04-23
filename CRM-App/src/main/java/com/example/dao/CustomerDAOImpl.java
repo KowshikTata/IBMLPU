@@ -16,7 +16,10 @@ public class CustomerDAOImpl implements CustomerDAO{
 	@Override
 	public Customer createCustomer(Customer customer) {
 		// TODO Auto-generated method stub
-		return null;
+		Session currentsession=sessionfactory.openSession();
+		currentsession.save(customer);
+	
+		return customer;
 	}
 
 	@Override
@@ -36,15 +39,32 @@ public class CustomerDAOImpl implements CustomerDAO{
 	}
 
 	@Override
-	public void deleteCustomer(int id) {
+	public Customer deleteCustomer(int id) {
 		// TODO Auto-generated method stub
-		
+		Session currentsession=sessionfactory.openSession();
+		Customer c=currentsession.get(Customer.class,id);
+		if(c==null)
+		{
+			return null;
+		}
+		else
+		{
+			currentsession.beginTransaction();
+			currentsession.remove(c);
+			currentsession.getTransaction().commit();
+			return c;
+		}
 	}
 
 	@Override
-	public void updateCustomer(int id, String email) {
+	public Customer updateCustomer(Customer customer) {
 		// TODO Auto-generated method stub
-		
+		Session currentsession=sessionfactory.openSession();
+		currentsession.getTransaction().begin();
+			currentsession.saveOrUpdate(customer);
+			currentsession.getTransaction().commit();
+			return customer;
+		}
 	}
 
-}
+

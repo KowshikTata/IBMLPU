@@ -2,7 +2,7 @@ package com.example.exception;
 
 public class CustomerNotFoundException extends Exception {
 
-	String message;
+	private String message;
 
 	
 	

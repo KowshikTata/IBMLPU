@@ -2,8 +2,11 @@ package com.example.service;
 
 import java.util.List;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.dao.CustomerDAO;
 import com.example.entity.Customer;
@@ -14,33 +17,38 @@ public class CustomerServiceImpl implements CustomerService {
 	private CustomerDAO dao;
 
 	@Override
+	@Transactional
 	public Customer createCustomer(Customer customer) {
 		// TODO Auto-generated method stub
 		return dao.createCustomer(customer);
 	}
 
 	@Override
+	@Transactional
 	public List<Customer> getCustomers() {
 		// TODO Auto-generated method stub
 		return dao.getCustomers();
 	}
 
 	@Override
+	@Transactional
 	public Customer getCustomerById(int id) {
 		// TODO Auto-generated method stub
 		return dao.getCustomerById(id);
 	}
 
 	@Override
-	public void deleteCustomer(int id) {
+	@Transactional
+	public Customer deleteCustomer(int id) {
 		// TODO Auto-generated method stub
-		dao.deleteCustomer(id);
+		return dao.deleteCustomer(id);
 	}
 
 	@Override
-	public void updateCustomer(int id, String email) {
+	
+	public Customer updateCustomer(Customer customer) {
 		// TODO Auto-generated method stub
-		dao.updateCustomer(id, email);	
+		return dao.updateCustomer(customer);	
 	}
 
 }
