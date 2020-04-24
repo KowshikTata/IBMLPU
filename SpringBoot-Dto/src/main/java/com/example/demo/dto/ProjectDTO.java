@@ -1,9 +1,15 @@
 package com.example.demo.dto;
 
-public class ProjectDTO {
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+@ApiModel(description = "Model class for Project")
+public class ProjectDTO {
+	@ApiModelProperty(notes = "Field for project name")
 	private String name;
+	@ApiModelProperty(notes = "Field for project desc")
 	 private String desc;
+	@ApiModelProperty(notes = "Field for gent name assigned with project")
 	 private String agentName;
 	 
 	 

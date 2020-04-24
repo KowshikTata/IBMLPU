@@ -16,8 +16,13 @@ import com.example.demo.dto.ProjectDTO;
 import com.example.demo.entity.Project;
 import com.example.demo.service.ProjectService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 @RestController
 @RequestMapping("/api")
+@Api(value="Project Management System", description="Operations pertaining to projects")
 public class ProjectController {
 
 	private ProjectService service;
@@ -26,28 +31,38 @@ public class ProjectController {
 		super();
 		this.service = service;
 	}
-
+	@ApiOperation(value = "View a list of available projects", response = List.class)
+	@ApiResponses(value = { 
+			@ApiResponse(code = 200, message = "Successfully retrieved list"),
+			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") 
+			})
 	@GetMapping("/projects")
 	public List<ProjectDTO> getAll()
 	{
 		return service.getAll();
 	}
+	@ApiOperation(value = "View a particular available projects", response = List.class)
 	@GetMapping("/projects/{id}")
 	public ProjectDTO get(@PathVariable("id") int id)
 	{
 		return service.get(id);
 	}
+	@ApiOperation(value = "Craete  projects", response = List.class)
 	@PostMapping("/projects")
 	public ProjectDTO create(@RequestBody ProjectDTO dto)
 	{
 		
 		return service.save(dto);
 	}
+	@ApiOperation(value = "Remove available projects", response = List.class)
 	@DeleteMapping("/projects/{id}")
 	public ProjectDTO del(@PathVariable("id") int id)
 	{
 		return service.del(id);
 	}
+	@ApiOperation(value = "Updation of available projects", response = List.class)
 	@PutMapping("/projects")
 	public ProjectDTO update(@RequestBody Project project)
 	{
