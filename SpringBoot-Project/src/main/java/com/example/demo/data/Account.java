@@ -29,35 +29,4 @@ public class Account {
 		this.accountType = accountType;
 		this.balance = balance;
 	}
-	public int getAccountNumber() {
-		return accountNumber;
-	}
-	public void setAccountNumber(int accountNumber) {
-		this.accountNumber = accountNumber;
-	}
-	public String getAccountID() {
-		return accountID;
-	}
-	public void setAccountID(String accountID) {
-		this.accountID = accountID;
-	}
-	public String getAccountType() {
-		return accountType;
-	}
-	public void setAccountType(String accountType) {
-		this.accountType = accountType;
-	}
-	public Double getBalance() {
-		return balance;
-	}
-	public void setBalance(Double balance) {
-		this.balance = balance;
-	}
-	@Override
-	public String toString() {
-		return "Account [accountNumber=" + accountNumber + ", accountID=" + accountID + ", accountType=" + accountType
-				+ ", balance=" + balance + "]";
-	}
-
-	
 }
