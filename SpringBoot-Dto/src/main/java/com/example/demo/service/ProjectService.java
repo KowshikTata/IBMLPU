@@ -17,4 +17,13 @@ public interface ProjectService {
 	
 	public ProjectDTO update(Project project);
 	
+	public Iterable<ProjectDTO> findByprojectName(String name);
+	
+	public Iterable<ProjectDTO> findByprojectdesc(String desc);
+	
+	public Iterable<ProjectDTO> findByprojectNameAndprojectdesc(String name,String desc);
+
+	public void deleteByProjectName(String name);
+
+
 }

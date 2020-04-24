@@ -13,20 +13,20 @@ public class Project {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String projectName;
-	private String projectdesc;
+	private String projectDesc;
 	private String agentName;
-	public Project(String projectName, String projectdesc, String agentName) {
+	public Project(String projectName, String projectDesc, String agentName) {
 		super();
 		this.projectName = projectName;
-		this.projectdesc = projectdesc;
+		this.projectDesc = projectDesc;
 		this.agentName = agentName;
 	}
 	
 	
-	public Project(String projectName, String projectdesc) {
+	public Project(String projectName, String projectDesc) {
 		super();
 		this.projectName = projectName;
-		this.projectdesc = projectdesc;
+		this.projectDesc = projectDesc;
 	}
 
 
@@ -46,11 +46,11 @@ public class Project {
 	public void setProjectName(String projectName) {
 		this.projectName = projectName;
 	}
-	public String getProjectdesc() {
-		return projectdesc;
+	public String getProjectDesc() {
+		return projectDesc;
 	}
-	public void setProjectdesc(String projectdesc) {
-		this.projectdesc = projectdesc;
+	public void setProjectdesc(String projectDesc) {
+		this.projectDesc = projectDesc;
 	}
 	public String getAgentName() {
 		return agentName;
@@ -60,7 +60,7 @@ public class Project {
 	}
 	@Override
 	public String toString() {
-		return "Project [id=" + id + ", projectName=" + projectName + ", projectdesc=" + projectdesc + ", agentName="
+		return "Project [id=" + id + ", projectName=" + projectName + ", projectDesc=" + projectDesc + ", agentName="
 				+ agentName + "]";
 	}
 

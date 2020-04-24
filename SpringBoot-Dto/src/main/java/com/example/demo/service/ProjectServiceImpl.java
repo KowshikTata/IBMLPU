@@ -1,15 +1,20 @@
 package com.example.demo.service;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.example.demo.dto.ProjectDTO;
 import com.example.demo.entity.Project;
 import com.example.demo.repo.ProjectRepository;
 @Service
+@EnableTransactionManagement
 public class ProjectServiceImpl implements ProjectService {
 
 	private ProjectRepository repo;
@@ -24,7 +29,7 @@ public class ProjectServiceImpl implements ProjectService {
 		if(repo.findById(id).isPresent())
 		{
 			Project p=repo.findById(id).get();
-			ProjectDTO dto=new ProjectDTO(p.getProjectName(),p.getProjectdesc());
+			ProjectDTO dto=new ProjectDTO(p.getProjectName(),p.getProjectDesc());
 		return dto;
 		}else
 		{
@@ -35,7 +40,7 @@ public class ProjectServiceImpl implements ProjectService {
 	@Override
 	public List<ProjectDTO> getAll() {
 		List<ProjectDTO> list=new  ArrayList();
-		repo.findAll().forEach(p ->{list.add(new ProjectDTO(p.getProjectName(),p.getProjectdesc() ));
+		repo.findAll().forEach(p ->{list.add(new ProjectDTO(p.getProjectName(),p.getProjectDesc() ));
 		
 		});
 		return list;
@@ -56,7 +61,7 @@ public class ProjectServiceImpl implements ProjectService {
 			
 			Project p=repo.findById(id).get();
 			
-			ProjectDTO dto=new ProjectDTO(p.getProjectName(),p.getProjectdesc());
+			ProjectDTO dto=new ProjectDTO(p.getProjectName(),p.getProjectDesc());
 			repo.deleteById(id);
 			return dto;
 		}
@@ -71,11 +76,50 @@ public class ProjectServiceImpl implements ProjectService {
 		if(repo.findById(project.getId()).isPresent())
 		{
 			 repo.save(project);
-			 ProjectDTO dto=new ProjectDTO(project.getProjectName(),project.getProjectdesc());
+			 ProjectDTO dto=new ProjectDTO(project.getProjectName(),project.getProjectDesc());
 			 return dto;
 		}
+		else
+		{
 		return null;
+		}
 	}
 
+	@Override
+	public Iterable<ProjectDTO> findByprojectName(String name) {
+		
+		List<ProjectDTO> list=new  ArrayList();
+		repo.findByProjectName(name).forEach(p ->{list.add(new ProjectDTO(p.getProjectName(),p.getProjectDesc() ));
+		
+		});
+		return list;
+	}
+
+	@Override
+	public Iterable<ProjectDTO> findByprojectdesc(String desc) {
+		List<ProjectDTO> list=new  ArrayList();
+		repo.findByProjectDesc(desc).forEach(p ->{list.add(new ProjectDTO(p.getProjectName(),p.getProjectDesc() ));
+		
+		});
+		return list;
+	}
+
+	@Override
+	public Iterable<ProjectDTO> findByprojectNameAndprojectdesc(String name,String desc) {
+		List<ProjectDTO> list=new  ArrayList();
+		repo.findByProjectNameAndProjectDesc(name, desc).forEach(p ->{list.add(new ProjectDTO(p.getProjectName(),p.getProjectDesc() ));
+		
+		});
+		return list;
+	}
+
+	@Override
+	@Transactional
+	public void deleteByProjectName(String name) {
+
+			repo.deleteByProjectName(name);
+
+		
+	}
 	
 }

@@ -69,6 +69,24 @@ public class ProjectController {
 		
 		return service.update(project);
 	}
-	
-	
+	@GetMapping("/projects/name/{name}")
+	public Iterable<ProjectDTO> getByName(@PathVariable("name") String name)
+	{
+		return service.findByprojectName(name);
+	}
+	@GetMapping("/projects/desc/{desc}")
+	public Iterable<ProjectDTO> getAl(@PathVariable("desc") String desc)
+	{
+		return service.findByprojectdesc(desc);
+	}
+	@GetMapping("/projects/{name}/{desc}")
+	public Iterable<ProjectDTO> getl(@PathVariable("name") String name,@PathVariable("desc") String desc)
+	{
+		return service.findByprojectNameAndprojectdesc(name, desc);
+	}
+	@DeleteMapping("/projects/name/{name}")
+	public void del2(@PathVariable("name") String name)
+	{
+		service.deleteByProjectName(name);
+	}
 }
