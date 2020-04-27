@@ -30,8 +30,47 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public Account getById(Integer id) {
-		// TODO Auto-generated method stub
+		
 		return dao.findById(id).get();
+	}
+
+
+
+	@Override
+	public Account createAccount(Account account) {
+		
+		return dao.save(account);
+	}
+
+
+
+	@Override
+	public Account deleteAccount(Integer id) {
+		Account account=dao.findById(id).get();
+		if(account==null)
+		{
+			return null;
+		}
+		else
+		{
+		dao.deleteById(id);
+		return account;
+		}
+	}
+
+
+
+	@Override
+	public Account updateAccount(Account account) {
+		Account acc=dao.findById(account.getId()).get();
+		if(acc==null)
+		{
+			return null;
+		}
+		else
+		{
+		return dao.save(account);
+		}
 	}
 
 }

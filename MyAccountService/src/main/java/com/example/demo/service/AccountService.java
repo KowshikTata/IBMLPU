@@ -10,4 +10,10 @@ public interface AccountService {
 	
 	public Account getById(Integer id);
 	
+	public Account createAccount(Account account);
+	
+	public Account deleteAccount(Integer id);
+	
+	public Account updateAccount(Account account);
+	
 }

@@ -2,7 +2,11 @@ package com.example.demo.rest;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,6 +39,20 @@ public class AccountController {
 	{
 		return service.getById(id);
 	}
-	
+	@PutMapping("/account")
+	public Account update(@RequestBody Account account)
+	{
+		return service.updateAccount(account);
+	}
+	@DeleteMapping("/account/{id}")
+	public Account del(@PathVariable("id") Integer id)
+	{
+		return service.deleteAccount(id);
+	}
+	@PostMapping("/account")
+	public Account save(@RequestBody Account account)
+	{
+		return service.createAccount(account);
+	}
 	
 }
