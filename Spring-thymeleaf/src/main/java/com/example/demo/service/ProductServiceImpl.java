@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,30 @@ public class ProductServiceImpl implements ProductService{
 	public Iterable<Product> getAll() {
 		// TODO Auto-generated method stub
 		return dao.findAll();
+	}
+
+
+
+	@Override
+	public Product getProductById(Integer id) {
+		// TODO Auto-generated method stub
+		return dao.findById(id).get();
+	}
+
+
+
+	@Override
+	public Product createProduct(Product product) {
+		// TODO Auto-generated method stub
+		return dao.save(product);
+	}
+
+
+
+	@Override
+	public Product updateProduct(Product product) {
+		// TODO Auto-generated method stub
+		return dao.save(product);
 	}
 
 }

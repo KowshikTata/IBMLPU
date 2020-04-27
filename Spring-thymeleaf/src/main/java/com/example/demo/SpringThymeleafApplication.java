@@ -33,6 +33,8 @@ public class SpringThymeleafApplication implements CommandLineRunner{
 		dao.save(product);
 		product=new Product("cell phone samsung",10000.00,"samsung.com");
 		dao.save(product);
+		
+		
 	}
 
 }
