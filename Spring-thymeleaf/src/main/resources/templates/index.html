@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<style type="text/css">
+.btn
+{
+background-color:red;
+
+
+}
+</style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -8,6 +16,6 @@
 hello world thymeleaf
 
 <p th:text="'Time on the server is:'+${theDate} "/>
-
+<button class="btn"><a href="/products">View all Products</a></button>
 </body>
 </html>
