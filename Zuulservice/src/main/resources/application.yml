@@ -4,17 +4,22 @@ info:
 endpoints:
   restart:
     enabled: true
-  
+spring:
+   boot:
+    admin:
+      client:
+        url: http://localhost:1111 
 
 zuul:
   prefix: /api
   routes:
-    account: 
-      path: /account/**
-      serviceId: account-service
-    customer: 
-      path: /customer/**
-      serviceId: customer-service          
+    user: 
+      path: /users/**
+      serviceId: user-service
+    movie:
+      path: /movies/**
+      serviceId: movie-service
+            
 
 ribbon:
   eureka:
