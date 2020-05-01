@@ -16,5 +16,6 @@ public interface MovieService {
 	
 	public Movie update(Movie movie);
 	
+	public int findUser(int userId);
 	
 }

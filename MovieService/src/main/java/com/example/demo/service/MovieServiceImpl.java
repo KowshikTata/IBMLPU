@@ -3,6 +3,7 @@ package com.example.demo.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import com.example.demo.model.Movie;
 import com.example.demo.repo.MovieDAO;
@@ -10,6 +11,8 @@ import com.example.demo.repo.MovieDAO;
 public class MovieServiceImpl implements MovieService{
 	
 	private MovieDAO dao;
+	
+	private RestTemplate restTemplate;
 
 	public MovieServiceImpl(MovieDAO dao) {
 		super();
@@ -59,6 +62,12 @@ public class MovieServiceImpl implements MovieService{
 		{
 		return dao.save(movie);
 		}
+	}
+
+	@Override
+	public int findUser(int userId) {
+		return restTemplate.getForObject("http://user-service/users/"+userId, int.class,userId);
+		
 	}
 
 }

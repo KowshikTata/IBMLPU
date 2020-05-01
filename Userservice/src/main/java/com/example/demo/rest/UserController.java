@@ -1,16 +1,13 @@
 package com.example.demo.rest;
 
-import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.model.User;
 import com.example.demo.service.UserService;
 
 
@@ -20,30 +17,15 @@ public class UserController {
 	@Autowired
 	private UserService service;
 
-	@RequestMapping("/movies")
-	public List getAll()
-	{
-		return service.getAll();
+	@GetMapping("/users/{userID}")
+	public int getUser(@PathVariable int userID){
+		User user = service.findUser(userID);
+		if(user==null)
+			return 0;
+		else
+			return 1;
 	}
 	
-	@RequestMapping("/movie/{id}")
-	public Object getAll(@PathVariable("id") Integer id)
-	{
-		return service.findById(id);
-	}
-	@PutMapping("/movie")
-	public Object update(@RequestBody Object object)
-	{
-		return service.update(object);
-	}
-	@DeleteMapping("/movie/{id}")
-	public Object del(@PathVariable("id") Integer id)
-	{
-		return service.delete(id);
-	}
-	@PostMapping("/movie")
-	public Object save(@RequestBody Object object)
-	{
-		return service.save(object);
-	}
+	
+	
 }
