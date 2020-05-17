@@ -9,4 +9,8 @@ spring:
         register: true
         service-name: service-B
       host: localhost
-      port: 8500
+      port: 8500   datasource:    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql/localhost/feign
+    username: root
+    password: Tata123! 
+       
